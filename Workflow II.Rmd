@@ -15,9 +15,32 @@ Mantenga su trabajo ordenado, portátil y autónomo
 
 Use la función here::here('ruta', 'a', 'archivo') para crear rutas robustas relativas a la raíz del proyecto.
 
-```{r}
+```{r ,eval=FALSE}
+
+library(here)
+
 here::here("path", "to", "file")
+
+here("data", "penguins.csv")
+#> [1] "/home/runner/work/_temp/Library/here/demo-project/data/penguins.csv"
+
+readr::read_csv(
+  here("data", "penguins.csv"),
+  col_types = list(.default = readr::col_guess()),
+  n_max = 3
+  
 ```
+
+Por ejemplo:
+
+```{r ,eval=FALSE}
+
+my_herecsv <- read_csv(here::here("data-raw/MNI.csv"))
+
+my_csvdata <- write_csv(output,"maule2020gch.csv")
+```
+
+
 
 ## Aproveche las herramientas y la funcionalidad para el desarrollo de paquetes R
 
@@ -121,5 +144,90 @@ usethis::use_git()
 usethis::use_github()
 ```
 
+## inspeccionar materiales
 
+## Actualizar archivo DESCRIPTION
+
+Actualicemos algunos detalles básicos en el archivo DESCRIPTION
+
+## Licencia
+
+Creemos una nueva licencia para el material que creamos. Usaremos una licencia MIT. Sin embargo, tenga en cuenta que solo cubre el código. Podemos hacer esto con:
+
+```{r , eval=FALSE}
+usethis::use_mit_license("Matias Frugone")
+```
+
+
+## Actualizar README
+
+Cada repositorio de GitHub necesita una página de inicio LÉAME.
+
+Cuando iniciamos nuestro compendio de investigación, se creó una plantilla README de rrtools.
+
+Siempre puedes volver a crear uno con
   
+```{r , eval=FALSE}
+rrtools::use_readme_rmd()
+```
+  
+Esto genera README.Rmd y lo convierte en README.md, listo para mostrar en GitHub. Contiene:
+
+detalles de autoría y DOI del artículo asociado.
+detalles de autoría y DOI del código y datos.
+una cita de plantilla para mostrar a otros cómo citar su proyecto.
+instrucciones sobre cómo descargar e instalar el compendio
+instrucciones sobre cómo reproducir el análisis
+información de licencia para el texto, las figuras, el código y los datos de su compendio
+
+
+# Configuración de la carpeta de análisis
+
+
+## Análisis completo
+
+Ahora pasaremos a trabajar en nuestra carpeta de análisis que contendrá nuestro análisis y papel. Ya existe pero puede volver a crearlo usando la función rrtools::use_analysis()
+
+```{r ,eval=FALSE}
+rrtools::use_analysis()
+```
+
+
+## Crear plantilla de artículo de revista usando  paquete rticle
+
+El paquete de artículos está diseñado para simplificar la creación de documentos que se ajusten a los estándares de presentación. El paquete proporciona un conjunto de plantillas R Markdown personalizadas para revistas populares.
+
+
+borrar papel/ subdirectorio  
+
+
+```{r ,eval=FALSE}
+fs::dir_delete("analysis/paper")
+```
+
+
+# crear una nueva plantilla 
+
+Este artículo en particular fue publicado en Ecology Letters, una revista de Elsevier. Podemos crear una nueva plantilla paper.Rmd a partir de las plantillas proporcionadas por el paquete rticles.
+
+```{r ,eval=FALSE}
+knitr::include_graphics("assets/rticle.png")
+```
+
+O podemos usar rmarkdown::draft() para crear artículos:
+
+```{r ,eval=FALSE}
+rmarkdown::draft(here::here("analysis","paper.Rmd"), template = "elsevier", package = "rticles")
+```
+
+
+# Como clonar un repositorio privado de github
+
+Pasos:
+1. Obtener token de acceso
+2. Reemplazar los datos en la siguiente url: 
+$ git clone https://${TOKEN}:x-oauth-basic@github.com/MyUser/MyRepo.git
+
+
+
+

@@ -125,5 +125,10 @@ la parte final de nuestro camino.
 Para crear rrcompendium en nuestro proyecto, uso:
 
 ``` r
-#rrtools::create_compendium("upwellcompendium")
+library(usethis)
+# Inicia el compendio como un proyecto
+rrtools::create_compendium("~/Documents/workflow/upwellcompendium")
+# Iniciar el control de versiones
+usethis::use_git()
+usethis::use_github()
 ```

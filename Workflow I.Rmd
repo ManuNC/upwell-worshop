@@ -1,5 +1,3 @@
-------------------------------------------------------------------------
-
 ---
 title: "Workflow I"
 output: github_document
@@ -159,7 +157,7 @@ library(tidyverse)
 
 -   Canalización (piping) de las salidas de las funciones tidyverse como entradas para funciones posteriores.
 
-```{r}
+```{r eval=FALSE}
 install.packages(c("tibble", "dplyr"))
 ```
 
