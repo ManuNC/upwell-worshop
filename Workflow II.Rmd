@@ -118,6 +118,7 @@ library(usethis)
 rrtools::create_compendium("~/Documents/workflow/upwellcompendium")
 # Iniciar el control de versiones
 usethis::use_git()
+usethis::use_github()
 ```
 
 
