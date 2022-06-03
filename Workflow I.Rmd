@@ -200,9 +200,6 @@ my_csvdata <- write_csv(output,"maule2020gch.csv")
 
 ```{r , eval=FALSE}
 
-install.packages("knitr",dependencies = TRUE)
-
-
 x<-c(1:10)
 y<-c(10:20)
 z<- cbind(x,y)
