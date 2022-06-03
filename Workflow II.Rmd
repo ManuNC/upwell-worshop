@@ -113,7 +113,11 @@ Ahora estamos listos para crear nuestro compendio. Usamos la función rrtools::c
 Para crear rrcompendium en nuestro proyecto, uso:
 
 ```{r , eval=FALSE}
-#rrtools::create_compendium("upwellcompendium")
+library(usethis)
+# Inicia el compendio como un proyecto
+rrtools::create_compendium("~/Documents/workflows/upwellcompendium")
+# Iniciar el control de versiones
+usethis::use_git()
 ```
 
 
